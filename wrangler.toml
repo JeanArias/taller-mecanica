@@ -1,0 +1,14 @@
+name = "taller-mecanica-victoria"
+type = "javascript"
+
+# Configuración para Cloudflare Pages
+[env.production]
+routes = [
+  { pattern = "example.com", zone_name = "example.com" }
+]
+
+# Build settings
+build = { command = "", cwd = "." }
+
+# Observa que para un sitio estático no necesitas build command
+# Los archivos HTML, CSS y JS se sirven tal como están

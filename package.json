@@ -1,0 +1,32 @@
+{
+  "name": "taller-mecanica-victoria",
+  "version": "1.0.0",
+  "description": "Landing page elegante y sofisticada para Taller de Mecánica Industrial Victoria",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "serve:node": "npx http-server",
+    "deploy": "wrangler pages deploy ."
+  },
+  "keywords": [
+    "mecanizado",
+    "fresado",
+    "torneado",
+    "industrial",
+    "CNC",
+    "precision"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuusuario/taller-mecanica-victoria.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tuusuario/taller-mecanica-victoria/issues"
+  },
+  "homepage": "https://github.com/tuusuario/taller-mecanica-victoria#readme"
+}
