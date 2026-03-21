@@ -38,7 +38,7 @@ body {
    ======================================== */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -72,8 +72,48 @@ p {
 }
 
 /* ========================================
-   BOTONES
+   BOTÓN FLOTANTE WHATSAPP
    ======================================== */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    transition: var(--transition);
+    z-index: 999;
+    animation: slideUp 0.5s ease-out;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .btn-primary,
 .btn-secondary,
@@ -190,12 +230,13 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background-color: transparent;
+    background-color: #0d5c5f;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: var(--transition);
+    transform: translateY(0);
 }
 
 .navbar.scrolled {
@@ -204,10 +245,10 @@ p {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: white;
     transition: var(--transition);
 }
 
@@ -222,7 +263,7 @@ p {
 }
 
 .nav-links a {
-    color: var(--primary-dark);
+    color: white;
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -258,7 +299,8 @@ p {
     display: flex;
     align-items: center;
     padding: 120px 60px 60px;
-    background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+    background: linear-gradient(135deg, rgba(15, 61, 62, 0.85) 0%, rgba(15, 61, 62, 0.85) 100%), 
+                url('imagenes/taller-panoramica.jpg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
 }
@@ -266,12 +308,11 @@ p {
 .hero::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
     z-index: 0;
 }
 
@@ -285,13 +326,13 @@ p {
 
 .hero h1 {
     margin-bottom: 24px;
-    color: var(--primary-dark);
+    color: white;
     animation: fadeInUp 0.8s ease-out;
 }
 
 .hero p {
     font-size: 1.2rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.95);
     max-width: 600px;
     margin-bottom: 40px;
     line-height: 1.8;
@@ -636,6 +677,23 @@ p {
 .contact-mini i {
     color: var(--accent-gold);
     font-size: 1.2rem;
+}
+
+.contact-mini a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-mini a:hover {
+    color: var(--accent-gold);
+}
+
+.contact-mini a i {
+    color: #1877F2;
 }
 
 .footer-img img {
