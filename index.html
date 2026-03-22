@@ -10,15 +10,36 @@
     
     <script id="tailwind-config">
         tailwind.config = {
+            important: true,
             darkMode: "class",
             theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0f3d3e",
-                        "secondary": "#d4a574",
-                        "tertiary": "#502f19",
-                        "neutral": "#454748",
+                colors: {
+                    transparent: 'transparent',
+                    current: 'currentColor',
+                    white: '#ffffff',
+                    black: '#000000',
+                    primary: '#0f3d3e',
+                    secondary: '#d4a574',
+                    tertiary: '#502f19',
+                    neutral: '#454748',
+                    gray: {
+                        '50': '#f9fafb',
+                        '100': '#f3f4f6',
+                        '200': '#e5e7eb',
+                        '300': '#d1d5db',
+                        '400': '#9ca3af',
+                        '500': '#6b7280',
+                        '600': '#4b5563',
+                        '700': '#374151',
+                        '800': '#1f2937',
+                        '900': '#111827',
                     },
+                    green: {
+                        '500': '#10b981',
+                        '600': '#059669',
+                    }
+                },
+                extend: {
                     fontFamily: {
                         "headline": ["Work Sans"],
                         "body": ["Inter"],
@@ -29,6 +50,93 @@
     </script>
     
     <style>
+        :root {
+            color-scheme: light;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Colores fijos para evitar cambios */
+        .bg-primary {
+            background-color: #0f3d3e !important;
+        }
+
+        .text-primary {
+            color: #0f3d3e !important;
+        }
+
+        .border-primary {
+            border-color: #0f3d3e !important;
+        }
+
+        .bg-secondary {
+            background-color: #d4a574 !important;
+        }
+
+        .text-secondary {
+            color: #d4a574 !important;
+        }
+
+        .border-secondary {
+            border-color: #d4a574 !important;
+        }
+
+        /* Transparencias */
+        .bg-secondary\/20 {
+            background-color: rgba(212, 165, 116, 0.2) !important;
+        }
+
+        .bg-secondary\/30 {
+            background-color: rgba(212, 165, 116, 0.3) !important;
+        }
+
+        .border-secondary\/40 {
+            border-color: rgba(212, 165, 116, 0.4) !important;
+        }
+
+        .text-secondary\/20 {
+            color: rgba(212, 165, 116, 0.2) !important;
+        }
+
+        .border-primary\/10 {
+            border-color: rgba(15, 61, 62, 0.1) !important;
+        }
+
+        .bg-primary\/80 {
+            background-color: rgba(15, 61, 62, 0.8) !important;
+        }
+
+        .bg-white\/95 {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .border-white\/20 {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .text-gray-200 {
+            color: #e5e7eb !important;
+        }
+
+        .text-gray-300 {
+            color: #d1d5db !important;
+        }
+
+        .text-gray-600 {
+            color: #4b5563 !important;
+        }
+
+        .bg-gray-50 {
+            background-color: #f9fafb !important;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -308,7 +416,7 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-primary mb-2">Producción en Series</h3>
-                    <p class="text-sm text-gray-600">Manufactura de alta complejidad con certificación ISO 9001.</p>
+                    <p class="text-sm text-gray-600">Manufactura de alta complejidad.</p>
                 </div>
             </div>
         </div>
