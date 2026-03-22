@@ -1,175 +1,465 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="light" lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Taller de Mecánica Industrial Victoria - Soluciones de mecanizado de alta precisión">
-    <meta name="keywords" content="mecanizado, fresado, torneado, industrial, precisión, matrices, inyección">
-    <meta name="theme-color" content="#0f3d3e">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mecánica Victoria | Ingeniería de Precisión Industrial</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
-    <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="Taller de Mecánica Industrial Victoria - Mecanizado de Precisión">
-    <meta property="og:description" content="Soluciones de mecanizado de alta precisión. Más de 20 años de experiencia">
-    <meta property="og:type" content="website">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f3d3e",
+                        "secondary": "#d4a574",
+                        "tertiary": "#502f19",
+                        "neutral": "#454748",
+                    },
+                    fontFamily: {
+                        "headline": ["Work Sans"],
+                        "body": ["Inter"],
+                    }
+                },
+            },
+        }
+    </script>
     
-    <title>Taller de Mecánica Industrial Victoria - Mecanizado de Precisión</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome para iconos -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .carousel-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .carousel-img.active {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
 </head>
-<body>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Producci%C3%B3n%20en%20Serie%20y%20servicios%20de%20mecanizado." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatea con nosotros por WhatsApp">
-        <img src="imagenes/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-    </a>
+<body class="bg-white text-gray-900 font-body">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <a href="/" class="logo">
-            <img src="imagenes/logo-taller-victoria.svg" alt="Taller Victoria" height="50">
-        </a>
-        <ul class="nav-links">
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
-        <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20cotizar%20los%20servicios%20del%20taller" class="btn-nav" target="_blank">Cotizar Ahora</a>
+    <!-- NAVBAR FIJO -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-primary/10 shadow-sm">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="text-xl font-black tracking-tighter text-primary uppercase font-headline">
+                Mecánica Victoria
+            </div>
+            
+            <div class="hidden md:flex gap-8 items-center font-headline font-medium text-sm tracking-wide">
+                <a class="text-primary border-b-2 border-secondary pb-1" href="#servicios">Servicios</a>
+                <a class="text-gray-600 hover:text-primary transition-colors" href="#experiencia">Experiencia</a>
+                <a class="text-gray-600 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
+                <a class="text-gray-600 hover:text-primary transition-colors" href="#contacto">Contacto</a>
+            </div>
+            
+            <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20cotizar%20los%20servicios%20del%20taller" target="_blank" class="bg-secondary text-white px-6 py-2.5 rounded-lg text-sm font-bold tracking-wide hover:bg-opacity-90 transition-all active:scale-95">
+                Cotizar Ahora
+            </a>
+        </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Ingeniería de Precisión <br>y Estándares Absolutos.</h1>
-            <p>Ubicados en el corazón de la industria, ofrecemos mecanizado y fresado de alta gama donde la elegancia técnica se une a la funcionalidad.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Agendar Visita</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- SERVICIOS -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <h2>Soluciones de Mecanizado</h2>
-            <p>Nuestras instalaciones cuentan con maquinaria de alta precisión, incluyendo fresadoras, tornos, cepillos y soldadura</p>
-        </div>
-
-        <div class="cards-container">
-            <div class="service-card dark-card">
-                <div class="card-image">
-                    <img src="imagenes/fresado.jpg" alt="Fresado de precisión">
-                </div>
-                <h3>Fresado</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20Fresado" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-            
-            <div class="service-card light-card">
-                <div class="card-image">
-                    <img src="imagenes/torneado.jpg" alt="Torneado Industrial">
-                </div>
-                <h3>Torneado Industrial</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Torneado%20Industrial" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-            
-            <div class="service-card light-card">
-                <div class="card-image">
-                    <img src="imagenes/diseno.jpg" alt="Soldadura en General">
-                </div>
-                <h3>Soldadura en General</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Soldadura%20en%20General" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-
-            <div class="service-card light-card">
-                <div class="card-image">
-                    <img src="imagenes/medicion.jpg" alt="Reparación de Matrices">
-                </div>
-                <h3>Reparación de Matrices de Corte</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Corte" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-
-            <div class="service-card light-card">
-                <div class="card-image">
-                    <img src="imagenes/acero.jpg" alt="Matrices de Embutido">
-                </div>
-                <h3>Reparación de Matrices de Embutido</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Embutido" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-
-            <div class="service-card light-card">
-                <div class="card-image">
-                    <img src="imagenes/ingeniero.jpg" alt="Matrices de Inyección">
-                </div>
-                <h3>Reparación de Matrices de Inyección</h3>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Inyecci%C3%B3n" class="btn-text" target="_blank">Solicitar Información</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROYECTOS DESTACADOS -->
-    <section class="featured-projects" id="projects">
-        <div class="project-content">
-            <span class="subtitle">Experiencia en Manufactura</span>
-            <h2>Más de 20 Años <br>de Expertise Industrial</h2>
-            
-            <ul class="project-list">
-                <li class="active">Componentes de Precisión Extrema</li>
-                <li>Reparación de Matrices Complejas</li>
-                <li>Producción en Series Cortas</li>
-                <li>Prototipos Industriales</li>
-            </ul>
-
-            <div class="price-tag">Experiencia certificada <a href="#contact" class="btn-small">Consultar</a></div>
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
+        <div class="absolute inset-0 opacity-35">
+            <img class="w-full h-full object-cover grayscale" src="imagenes/taller-panoramica.jpg" alt="Industrial metal machining workshop"/>
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary via-primary/80 to-transparent"></div>
         </div>
         
-        <div class="project-images">
-            <img src="imagenes/diseno.jpg" class="img-back" alt="Interior del taller industrial">
-            <img src="imagenes/pieza-metal.jpg" class="img-front" alt="Pieza de metal mecanizada">
-        </div>
-    </section>
-
-    <!-- CONTROL DE CALIDAD -->
-    <section class="quality-section" id="about">
-        <div class="quality-grid">
-            <div class="quality-text">
-                <h2>Control de Calidad <br>y Materiales Certificados</h2>
-                <p>Escapa de la incertidumbre. Garantizamos la integridad de cada pieza con un excelente trabajo de calidad. Con más de 20 años de experiencia, somos tu socio confiable en mecánica industrial.</p>
-                <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20consultar%20sobre%20los%20servicios%20del%20taller" class="btn-pill" target="_blank">Consultar</a>
+        <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-8">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 border border-secondary/40 rounded-full w-fit">
+                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                    <span class="text-secondary text-xs uppercase tracking-widest font-bold">Liderazgo Industrial</span>
+                </div>
                 
-                <div class="mini-gallery">
-                    <img src="imagenes/medicion.jpg" alt="Proceso de medición de precisión">
-                    <img src="imagenes/acero.jpg" alt="Materiales certificados">
+                <!-- Título -->
+                <h1 class="text-5xl md:text-7xl font-black text-white font-headline leading-tight tracking-tight">
+                    Ingeniería de <span class="text-secondary">Precisión</span> y Estándares Absolutos.
+                </h1>
+                
+                <!-- Descripción -->
+                <p class="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
+                    Más de 20 años transformando la industria metalmecánica. Soluciones robustas para desafíos complejos.
+                </p>
+                
+                <!-- Botones -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20agendar%20una%20visita%20al%20taller" target="_blank" class="bg-secondary text-primary px-8 py-4 rounded-lg font-bold text-base hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
+                        Agendar Visita
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                    <a href="#proyectos" class="border border-white/30 text-white px-8 py-4 rounded-lg font-bold text-base hover:bg-white/5 transition-all">
+                        Ver Portafolio
+                    </a>
                 </div>
             </div>
-            <div class="quality-main-img">
-                <img src="imagenes/ingeniero.jpg" alt="Equipo técnico especializado">
+            
+            <!-- Card derecha -->
+            <div class="lg:col-span-4 hidden lg:block">
+                <div class="p-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-secondary/30 rounded-lg flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary text-2xl">precision_manufacturing</span>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold">+20 Años</div>
+                            <div class="text-gray-300 text-xs">Experiencia Manufacturera</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-secondary/30 rounded-lg flex items-center justify-center">
+                            <span class="material-symbols-outlined text-secondary text-2xl">verified</span>
+                        </div>
+                        <div>
+                            
+                            <div class="text-gray-300 text-xs">Calidad Garantizada</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER / CONTACT CTA -->
-    <footer class="footer-cta" id="contact">
-        <div class="cta-content">
-            <h2>Su Socio Estratégico <br>en Mecánica Industrial</h2>
-            <p>Nuestro taller ofrece una máxima calidad, rendimiento y puntualidad en cada proyecto que emprendemos.</p>
-            <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n%20para%20los%20servicios%20del%20taller" class="btn-primary" target="_blank">Solicitar Cotización</a>
-            <div class="contact-mini">
-                <span><i class="fas fa-envelope"></i> contacto@taller_victoria.com</span>
-                <span><i class="fas fa-phone"></i> +915020648</span>
-                <span><i class="fas fa-map-marker-alt"></i> Los Alamos del Norte, Carabayllo</span>
-                <span><a href="https://facebook.com/tallervictoria" target="_blank"><i class="fab fa-facebook"></i> Síguenos en Facebook</a></span>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <p class="text-secondary text-xs uppercase tracking-widest font-bold mb-4">Nuestras Capacidades</p>
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <h2 class="text-4xl md:text-5xl font-black font-headline text-primary max-w-xl">
+                        Especialización en Mecánica de Alta Complejidad.
+                    </h2>
+                    <p class="text-gray-600 max-w-md text-sm">Equipamiento tecnológico operado por maestros matriceros.</p>
+                </div>
+            </div>
+            
+            <!-- Grid de servicios -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Servicio 1: Fresado -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">settings_input_component</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Fresado</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Mecanizado de piezas prismáticas con tolerancias de micras para componentes industriales críticos.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20Fresado" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
+                
+                <!-- Servicio 2: Torneado -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">motion_photos_on</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Torneado Industrial</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Fabricación de ejes, pernos y piezas cilíndricas de gran formato con acabado espejo.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Torneado%20Industrial" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
+                
+                <!-- Servicio 3: Soldadura -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">imagesearch_roller</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Soldadura en General</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Uniones estructurales de alta resistencia mediante procesos TIG, MIG y Eléctrica.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Soldadura%20en%20General" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
+                
+                <!-- Servicio 4: Matrices Corte -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">content_cut</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Matrices de Corte</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Reparación técnica y ajuste de matrices para procesos de punzonado y cizallado.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Corte" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
+                
+                <!-- Servicio 5: Matrices Embutido -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">layers</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Matrices de Embutido</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Mantenimiento preventivo y correctivo para moldes de deformación de lámina.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Embutido" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
+                
+                <!-- Servicio 6: Matrices Inyección -->
+                <div class="service-card group bg-gray-50 p-8 rounded-xl flex flex-col justify-between min-h-80 transition-all hover:bg-primary hover:text-white border-b-4 border-secondary/0 hover:border-secondary shadow-sm hover:shadow-lg">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl mb-6 block text-secondary">hardware</span>
+                        <h3 class="text-2xl font-bold font-headline mb-4">Matrices de Inyección</h3>
+                        <p class="text-sm opacity-80 leading-relaxed">Restauración de cavidades y sistemas de refrigeración para moldes plásticos.</p>
+                    </div>
+                    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Reparaci%C3%B3n%20de%20Matrices%20de%20Inyecci%C3%B3n" target="_blank" class="mt-8 flex items-center gap-2 font-bold text-sm tracking-widest uppercase hover:gap-4 transition-all">
+                        Solicitar <span class="material-symbols-outlined text-sm">call</span>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="footer-img">
-            <img src="imagenes/taller-panoramica.jpg" alt="Vista panorámica del taller industrial">
+    </section>
+
+    <!-- SECCIÓN EXPERIENCIA -->
+    <section id="experiencia" class="bg-gray-50 py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <!-- Imagen izquierda -->
+                <div class="relative order-2 md:order-1">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl h-96">
+                        <img class="w-full h-full object-cover" src="imagenes/fresado.jpg" alt="Proyectos industriales"/>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-primary p-8 rounded-xl z-20 hidden md:block">
+                        <div class="text-4xl font-black text-white font-headline">20</div>
+                        <div class="text-secondary text-xs uppercase font-bold tracking-widest">Años de Maestría</div>
+                    </div>
+                </div>
+                
+                <!-- Contenido derecha -->
+                <div class="order-1 md:order-2 space-y-6">
+                    <p class="text-secondary text-xs uppercase tracking-widest font-bold">Nuestra Trayectoria</p>
+                    <h2 class="text-4xl font-black font-headline text-primary">Dos Décadas de Manufactura sin Compromisos.</h2>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        En Taller Victoria, no solo reparamos maquinaria; optimizamos sistemas de producción. Nuestra historia está forjada en el acero de miles de proyectos exitosos para la industria minera, automotriz y alimentaria del Perú.
+                    </p>
+                    
+                    <ul class="space-y-4 pt-4">
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+                            <div>
+                                <h5 class="font-bold text-primary">Precisión Dimensional</h5>
+                                <p class="text-sm text-gray-600">Equipos de medición calibrados bajo estándares internacionales.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+                            <div>
+                                <h5 class="font-bold text-primary">Entrega Crítica</h5>
+                                <p class="text-sm text-gray-600">Entendemos el costo de una máquina parada. Cumplimos tiempos récord.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTOS CON CARRUSEL -->
+    <section id="proyectos" class="bg-white py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-secondary text-xs uppercase tracking-widest font-bold mb-4">Experiencia en Manufactura</p>
+            <h2 class="text-4xl md:text-5xl font-black font-headline text-primary mb-16">Portafolio de Proyectos Destacados.</h2>
+            
+            <!-- Carrusel de imágenes -->
+            <div class="relative w-full h-96 rounded-xl overflow-hidden shadow-2xl bg-gray-100">
+                <div class="relative w-full h-full">
+                    <img src="imagenes/medicion.jpg" class="carousel-img active" alt="Proyecto 1"/>
+                    <img src="imagenes/torneado.jpg" class="carousel-img" alt="Proyecto 2"/>
+                    <img src="imagenes/acero.jpg" class="carousel-img" alt="Proyecto 3"/>
+                </div>
+                
+                <!-- Indicadores -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                    <div class="carousel-dot w-2 h-2 rounded-full bg-white/60 cursor-pointer" data-index="0"></div>
+                    <div class="carousel-dot w-2 h-2 rounded-full bg-white/60 cursor-pointer" data-index="1"></div>
+                    <div class="carousel-dot w-2 h-2 rounded-full bg-white/60 cursor-pointer" data-index="2"></div>
+                </div>
+            </div>
+            
+            <!-- Descripción -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-primary mb-2">Componentes de Precisión</h3>
+                    <p class="text-sm text-gray-600">Piezas prismáticas con tolerancias de micras para la industria automotriz.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-primary mb-2">Reparación de Matrices</h3>
+                    <p class="text-sm text-gray-600">Mantenimiento correctivo para moldes de inyección y embutido.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-primary mb-2">Producción en Series</h3>
+                    <p class="text-sm text-gray-600">Manufactura de alta complejidad con certificación ISO 9001.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CALIDAD -->
+    <section id="calidad" class="bg-primary py-32 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+            <svg class="w-full h-full stroke-white fill-none" stroke-width="0.1" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40"></circle>
+                <path d="M10,50 L90,50 M50,10 L50,90"></path>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <p class="text-secondary text-xs uppercase tracking-widest font-bold mb-6">Excelencia Técnica</p>
+                <h2 class="text-4xl md:text-5xl font-black font-headline text-white mb-8">Control de Calidad y Materiales Certificados</h2>
+                <p class="text-gray-200 text-lg leading-relaxed">
+                    Cada pieza que sale de nuestro taller pasa por un riguroso proceso de inspección. Utilizamos exclusivamente aceros y aleaciones con trazabilidad certificada.
+                </p>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white/5 p-8 border border-white/10 rounded-lg text-center">
+                    <div class="text-secondary text-4xl font-black font-headline mb-2">100%</div>
+                    <div class="text-white font-bold text-sm">Equipo Especializado</div>
+                </div>
+                <div class="bg-white/5 p-8 border border-white/10 rounded-lg text-center">
+                    <div class="text-secondary text-4xl font-black font-headline mb-2">100%</div>
+                    <div class="text-white font-bold text-sm">Material Certificado</div>
+                </div>
+                <div class="bg-white/5 p-8 border border-white/10 rounded-lg text-center">
+                    <div class="text-secondary text-4xl font-black font-headline mb-2">24/7</div>
+                    <div class="text-white font-bold text-sm">Soporte Técnico</div>
+                </div>
+                <div class="bg-white/5 p-8 border border-white/10 rounded-lg text-center">
+                    <div class="text-secondary text-4xl font-black font-headline mb-2">+20</div>
+                    <div class="text-white font-bold text-sm">Años de Experiencia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-gray-50 py-16 px-6 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Columna 1 -->
+                <div class="space-y-4">
+                    <div class="text-lg font-bold text-primary font-headline">Taller Victoria</div>
+                    <p class="text-sm text-gray-600 leading-relaxed">Su Socio Estratégico en Mecánica Industrial. Forjando el futuro de la ingeniería nacional.</p>
+                    <!--<a href="https://facebook.com/tallervictoria" target="_blank" class="w-10 h-10 rounded bg-primary text-white flex items-center justify-center hover:bg-secondary transition-all">
+                        <span class="material-symbols-outlined text-lg">facebook</span>
+                    </a> -->
+                </div>
+                
+                <!-- Columna 2 -->
+                <div class="space-y-4">
+                    <div class="text-sm font-bold text-primary uppercase tracking-widest">Servicios</div>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a class="hover:text-primary transition-colors" href="#servicios">Fresado Industrial</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#servicios">Matrices de Corte</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#servicios">Inyección de Plástico</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#servicios">Soldadura Especializada</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3 -->
+                <div class="space-y-4">
+                    <div class="text-sm font-bold text-primary uppercase tracking-widest">Contacto</div>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-secondary">mail</span>
+                            contacto@taller_victoria.com
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-secondary">call</span>
+                            +915020648
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-sm text-secondary mt-0.5">location_on</span>
+                            Los Alamos del Norte, Carabayllo, Lima.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 4 -->
+                <div class="space-y-4">
+                    <div class="text-sm font-bold text-primary uppercase tracking-widest">Ubicación</div>
+                    <div class="w-full h-32 rounded bg-gray-200 overflow-hidden grayscale">
+                        <img class="w-full h-full object-cover opacity-60" src="imagenes/taller.jpg" alt="Ubicación Carabayllo"/>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
+                © 2026 Taller de Mecánica Industrial Victoria. Carabayllo, Perú. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
-   
+    <!-- BOTÓN WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/915020648?text=Hola%20Victoria%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20del%20taller" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition-transform active:scale-95 hover:bg-green-600">
+        <span class="material-symbols-outlined text-3xl">chat</span>
+    </a>
+
+    <!-- SCRIPT CARRUSEL -->
+    <script>
+        // Carrusel automático de proyectos
+        function initCarousel() {
+            const images = document.querySelectorAll('.carousel-img');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (images.length === 0) return;
+            
+            let currentIndex = 0;
+            
+            function showImage(index) {
+                images.forEach(img => img.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('bg-white'));
+                
+                images[index].classList.add('active');
+                if (dots[index]) {
+                    dots[index].classList.add('bg-white');
+                }
+            }
+            
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+            
+            // Click en dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    showImage(currentIndex);
+                });
+            });
+            
+            // Cambiar cada 5 segundos
+            setInterval(nextImage, 5000);
+            
+            // Mostrar primera imagen
+            showImage(0);
+        }
+        
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    </script>
+</body>
+</html>

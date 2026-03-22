@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectList();
     initScrollAnimations();
     initSmoothScroll();
+    initCarousel();
 });
 
 // ========================================
@@ -34,8 +35,30 @@ function initNavbar() {
 }
 
 // ========================================
-// LISTA DE PROYECTOS - INTERACTIVIDAD
+// CARRUSEL DE PROYECTOS - AUTOMÁTICO
 // ========================================
+
+function initCarousel() {
+    const images = document.querySelectorAll('.carousel-img');
+    
+    if (images.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    function showNextImage() {
+        // Remover clase active de la imagen actual
+        images[currentIndex].classList.remove('active');
+        
+        // Pasar a la siguiente imagen
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Agregar clase active a la nueva imagen
+        images[currentIndex].classList.add('active');
+    }
+    
+    // Cambiar imagen cada 5 segundos (5000 ms)
+    setInterval(showNextImage, 5000);
+}
 
 function initProjectList() {
     const projectItems = document.querySelectorAll('.project-list li');
